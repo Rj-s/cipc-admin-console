@@ -1,0 +1,83 @@
+<div class="row col-md-12 col-xs-12 clearfix">
+  <div class="col-md-4">
+    <div class="bbApplyOnline">
+      <label for="nbReferenceNumber">Nedbank Reference Number</label>
+      <input type="text" id="nbReferenceNumber" name="nbReferenceNumber" placeholder="" tabindex="0">
+      <div class="guideFieldError"> </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="bbApplyOnline ml-10">
+      <label for="cipcEnterpriseNumber">CIPC Enterprise Number</label>
+      <input type="text" id="cipcEnterpriseNumber" name="cipcEnterpriseNumber" placeholder="" tabindex="0">
+      <div class="guideFieldError">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 ">
+    <div class="bbApplyOnline ml-10">
+      <label for="cipcReservationNumber">CIPC reservation number</label>
+      <input type="text" id="cipcReservationNumber" name="cipcReservationNumber" placeholder="" tabindex="0">
+      <div class="guideFieldError">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row col-md-12 col-xs-12 clearfix">
+  <div class="col-md-4">
+    <div class="bbApplyOnline">
+      <label for="cipcIncorporateNumber">CIPC Incorporate Number</label>
+      <input type="text" id="cipcIncorporateNumber" name="cipcIncorporateNumber" placeholder="" tabindex="0">
+    </div>
+    <div class="guideFieldError">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="bbApplyOnline ml-10">
+      <label for="cipcNameReservatoin">CIPC Name Reservation</label>
+      <input type="text" id="cipcNameReservatoin" name="cipcNameReservatoin" placeholder="" tabindex="0">
+      <div class="guideFieldError">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="bbApplyOnline ml-10">
+      <label for="cipcIncorporateNumber">On Failure</label>
+      <select id="cipcIncorporateNumber" name="cipcIncorporateNumber" placeholder="" class="component-custom-inputs__simpleInput component-custom-inputs__simpleSelect">
+        <option value='any'>Any</option>
+        <option value='Continue with the application process, using the company enterprise number as the company name'>Continue with the application process, using the company enterprise number as the company name</option>
+        <option value='No name reservation required -register the business with a number only'>No name reservation required -register the business with a number only</option>
+      </select>
+      <div class="guideFieldError">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row col-md-12 col-xs-12 clearfix">
+  <div class="col-md-4">
+    <div class="bbApplyOnline">
+      <label for="submissionDateFrom">Submission Date from</label>
+      <input type="text" id="submissionDateFrom" name="submissionDateFrom" placeholder="" tabindex="0">
+      <div class="guideFieldError"> </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="bbApplyOnline ml-10">
+      <label for="submissionDateTo">Submission Date to</label>
+      <input type="text" id="submissionDateTo" name="submissionDateTo" placeholder="" tabindex="0">
+      <div class="guideFieldError"> </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 col-xs-12">
+  <div class="col-md-2 col-xs-6">
+    <button class='btn btn-primary'>Filter</button>
+  </div>
+  <div class="col-md-2 col-xs-6">
+    <button class='btn btn-primary'>Export to CSV</button>
+  </div>
+</div>
+
+<div class="row spacer large col-xs-12 overscrollx col-md-12">
+  <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)"></ng2-smart-table>
+</div>

@@ -1,0 +1,32 @@
+<div class="row" *ngIf='!isLoggedIn'>
+  <div class="col-xs-12 col-md-4 center-block">
+    <h4>LOGIN</h4>
+    <p>Please enter your email address and password below.</p>
+    <form [formGroup]="loginForm" novalidate>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" class="form-control" formControlName="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input name="password" type="password" formControlName="password" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <input (click)="login()" name="surname" type="submit" class="btn btn-default" value="Login">
+      </div>
+    </form>
+    <div class="guideFieldError" *ngIf="!!loginError">
+      <span class="icon-indent"></span>
+      Login error: {{ loginError | json }}</div>
+  </div>
+</div>
+<div class="col-md-12 col-xs-12" *ngIf='isLoggedIn'>
+  <div class="col-md-6 col-xs-6">
+    <button class='btn btn-primary' (click)='doAnnualReturns($event)'>Annual Returns</button>
+  </div>
+  <div class="col-md-6 col-xs-6">
+    <div class="ml-10">
+      <button class='btn btn-primary' (click)='doCompanyRegistations($event)'>CIPC Company registrations</button>
+    </div>
+  </div>
+</div>

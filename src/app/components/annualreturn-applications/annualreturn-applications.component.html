@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="productDetailsHead">
+    <p>Annual Returns Filed</p>
+  </div>
+</div>
+<div class="row mb-10">
+  <div class="col-md-4 col-xs-7">
+    <div class="bbApplyOnline">
+      <input type="text" id="search" placeholder="Search" name="Search" placeholder="" tabindex="0">
+      <div class="guideFieldError">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-xs-5">
+    <button class="ml-10 btn btn-primary">Search</button>
+  </div>
+</div>
+
+<div class="row border-top mb-30 col-md-12 col-xs-12">
+  <div class="col-md-4 col-xs-12 mt-10">
+    <div class="col-md-6 col-xs-6">
+      <button class="btn btn-primary" (click)="search(1)">New</button>
+    </div>
+    <div class="col-md-6 col-xs-6">
+      <button class="btn btn-primary" (click)="search(3)">Paid</button>
+    </div>
+  </div>
+  <div class="col-md-4 col-xs-12 mt-10">
+    <div class="col-md-6 col-xs-6">
+      <button class="btn btn-primary" (click)="search(2)">Expired</button>
+    </div>
+    <div class="col-md-6 col-xs-6">
+      <button class="btn btn-primary" (click)="search(0)">All</button>
+    </div>
+  </div>
+  <div class="col-md-4 col-xs-12 mt-10">
+    <button class="btn btn-primary" (click)="export2Csv()">Export to csv</button>
+  </div>
+</div>
+<div class="row spacer large col-xs-12 overscrollx col-md-12">
+  <ng2-smart-table [settings]="settings" [source]="source" (custom)="onCustom($event)"></ng2-smart-table>
+</div>

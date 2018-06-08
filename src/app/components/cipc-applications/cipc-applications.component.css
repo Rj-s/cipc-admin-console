@@ -1,0 +1,7 @@
+.spacer{
+    padding-top:20px;
+}
+
+.spacer.large{
+    padding-top: 50px;
+}
