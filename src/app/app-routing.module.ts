@@ -30,6 +30,10 @@ const appRoutes: Routes = [{
       component: ViewCipcApplicationComponent
 
     },
+    {
+      path: 'admin/annual-returns/view-cipc-application/:id',
+      component: ViewCipcApplicationComponent
+    },
     /* {
        path: 'account',
        component: UserAccountComponent,

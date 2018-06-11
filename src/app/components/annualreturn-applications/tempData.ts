@@ -11,7 +11,7 @@ export default [
         submittedDate: '2016/12/01',
         paidDate: '',
         expiryDate: '',
-        referenceNumber: '1'
+        referenceNumber: 'NED_291218273189273'
     },
     {
         companyName: 'Company 2',
@@ -25,7 +25,7 @@ export default [
         submittedDate: '2016/12/02',
         paidDate: '2016/12/09',
         expiryDate: '',
-        referenceNumber: '2'
+        referenceNumber: 'NED_291218273189273'
     },
     {
         companyName: 'Company 3',
@@ -39,7 +39,7 @@ export default [
         submittedDate: '2016/12/01',
         paidDate: '2016/12/07',
         expiryDate: '2016/12/06',
-        referenceNumber: '3'
+        referenceNumber: 'NED_291218273189273'
     },
     {
         companyName: 'Company 3',
@@ -53,6 +53,6 @@ export default [
         submittedDate: '2018/06/08',
         paidDate: '2018/12/07',
         expiryDate: '2018/12/06',
-        referenceNumber: '3'
+        referenceNumber: 'NED_291218273189273'
     }
 ]

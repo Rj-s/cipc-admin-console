@@ -12,28 +12,28 @@ import { Router } from '@angular/router';
 })
 export class ViewCIPCApplicationButtonComponent implements ViewCell, OnInit {
   renderValue: string;
-
+  originRoute: string;
   @Input() value: string | number;
   @Input() rowData: any;
 
   @Output() save: EventEmitter<any> = new EventEmitter();
 
   constructor(
-      private router: Router
-  ){ }
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.renderValue = this.value.toString().toUpperCase();
+    this.originRoute = this.router.url.split('/admin/')[1];
   }
 
   onClick() {
     //this.save.emit(this.rowData);
     console.log('rowData', this.rowData);
-
     // console.log('evt', event);
-     console.log('ref', this.rowData.referenceNumber);
-     let redirectTo = '/admin/cipc/view-cipc-application/' + this.rowData.referenceNumber;
-     this.router.navigate([redirectTo])
+    console.log('ref', this.rowData.referenceNumber);
+    const redirectTo = `/admin/${this.originRoute}/view-cipc-application/${this.rowData.referenceNumber}`;
+    this.router.navigate([redirectTo]);
   }
-  
+
 }

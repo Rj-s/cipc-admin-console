@@ -7,6 +7,7 @@ import { ElasticSearchService } from '../../services'
 import tempData from './tempData';
 import { SEARCH_TYPE } from './search-type.enum';
 import { ExportService } from '../../services/export.service';
+import { ViewCIPCApplicationButtonComponent } from '../cipc-applications/cipc-applications.view-application.component';
 
 @Component({
   selector: 'app-annualreturn-applications',
@@ -46,13 +47,13 @@ export class AnnualreturnApplicationsComponent implements OnInit {
       ],
     },
     columns: {
-      id: {
-        title: ' ',
+      referenceNumber: {
+        title: 'Detail',
         editable: false,
         filter: false,
         type: 'custom',
         isExport: false,
-        renderComponent: AnnualReturnsCustomActionButtons,
+        renderComponent: ViewCIPCApplicationButtonComponent,
       },
       companyName: {
         title: 'Company Name',

@@ -12,9 +12,10 @@ import { NgForm } from '@angular/forms';
 export class ViewCipcApplicationComponent implements OnInit {
 
   // Variables
+  originRoute = '';
   applicationId = '';
   showResendInformationDialog: boolean = false;
-  
+
   informationToResend = {
     director: false,
     incorporator: false,
@@ -30,26 +31,31 @@ export class ViewCipcApplicationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-  ) { 
+  ) {
   }
 
   ngOnInit() {
     // Get the application reference number
     this.applicationId = this.route.snapshot.params['id'];
-    
-   // console.log('app', this.applicationId)
+    this.originRoute = this.router.url.split('/')[2];
+    // console.log('app', this.applicationId)
   }
 
-  resendInformation(){
+  redirectBack() {
+    const redirectTo = `/admin/${this.originRoute}`;
+    this.router.navigate([redirectTo]);
+  }
+
+  resendInformation() {
     this.showResendInformationDialog = !this.showResendInformationDialog;
   }
 
-  submitToCIPC(event: any){
+  submitToCIPC(event: any) {
     event.preventDefault();
     console.log('details', this.informationToResend);
 
   }
 
-  
+
 
 }
