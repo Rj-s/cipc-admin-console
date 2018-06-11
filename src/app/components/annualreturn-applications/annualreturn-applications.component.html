@@ -6,7 +6,7 @@
 <div class="row mb-10">
   <div class="col-md-4 col-xs-7">
     <div class="bbApplyOnline">
-      <input type="text" id="search" placeholder="Search" name="Search" placeholder="" tabindex="0">
+      <input type="text" id="search" placeholder="Search" name="Search" placeholder="" tabindex="0" [(ngModel)]="searchText" (ngModelChange)='triggerAllMenuSearch($event)'>
       <div class="guideFieldError">
       </div>
     </div>

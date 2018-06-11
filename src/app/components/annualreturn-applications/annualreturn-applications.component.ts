@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
+import { Subject } from 'rxjs/Subject';
 
 import { AnnualReturnsCustomActionButtons } from './annualreturns-applications.customactionbuttons.component';
 import { ElasticSearchService } from '../../services'
@@ -14,6 +15,8 @@ import { ExportService } from '../../services/export.service';
 })
 export class AnnualreturnApplicationsComponent implements OnInit {
 
+  searchInputChange: Subject<string> = new Subject<string>();
+  searchText = '';
   items = [];
   itemCount = 0;
 
@@ -112,6 +115,13 @@ export class AnnualreturnApplicationsComponent implements OnInit {
 
   constructor(private elasticSearchService: ElasticSearchService, private exportSvc: ExportService) {
     this.source = new LocalDataSource(tempData);
+    this.searchInputChange
+      .debounceTime(300)
+      .distinctUntilChanged()
+      .subscribe((data) => {
+        this.searchText = data;
+        this.searchInTableData();
+      });
   }
 
   ngOnInit() {
@@ -121,6 +131,25 @@ export class AnnualreturnApplicationsComponent implements OnInit {
 
   onCustom(event) {
     console.log('Custom event ', event)
+  }
+
+  triggerAllMenuSearch(text) {
+    this.searchInputChange.next(text);
+  }
+
+  searchInTableData() {
+    const matchedData = tempData.filter(item => {
+      const keys = Object.keys(item);
+      const matches = keys.filter(key => {
+        return this.matches(item[key]) ? item : null;
+      })
+      return matches && matches.length > 0 ? item : null;
+    })
+    this.source = new LocalDataSource(matchedData);
+  }
+
+  matches(value) {
+    return value.indexOf(this.searchText) !== -1;
   }
 
   search(searchType: SEARCH_TYPE) {
